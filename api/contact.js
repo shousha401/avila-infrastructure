@@ -87,10 +87,13 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: 'Email is not configured on the server yet.' });
   }
 
+  // LEAD_TO may be a single address or a comma-separated list (e.g. Jonathan + oversight inbox)
+  const leadRecipients = leadTo.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+
   try {
     // 1) Lead notification to the business (reply-to = customer, so Jonathan just hits Reply)
     await sendEmail({
-      apiKey: apiKey, from: from, to: leadTo, replyTo: email,
+      apiKey: apiKey, from: from, to: leadRecipients, replyTo: email,
       subject: 'New estimate request from ' + name + ' — Avila website',
       html:
         '<h2 style="font-family:Arial,sans-serif;color:#C10D17">New Estimate Request</h2>' +
