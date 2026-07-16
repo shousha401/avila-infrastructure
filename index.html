@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avila Infrastructure & Contracting | Utility Infrastructure | Lemoore, CA</title>
+  <meta name="description" content="Avila Infrastructure & Contracting — professional utility infrastructure, agricultural electrical, and contracting services across California's Central Valley. Licensed, insured, bonded. Call (559) 349-4392.">
+  <meta property="og:title" content="Avila Infrastructure & Contracting | Lemoore, CA">
+  <meta property="og:description" content="Utility infrastructure done right. Serving the Central Valley with power, communications, underground systems, and ag solutions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avilainfrastructure.com/">
+  <meta property="og:image" content="https://avilainfrastructure.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       CSS CUSTOM PROPERTIES — card palette
+    ======================================== */
+    :root {
+      --red: #C10D17;
+      --red-dark: #9A0A12;
+      --ink: #121316;
+      --ink-2: #1A1B1E;
+      --ink-3: #0C0D0F;
+      --paper: #FAFAF8;
+      --paper-2: #F2F0EB;
+      --line: #E4E1DB;
+      --line-dark: rgba(255, 255, 255, 0.08);
+      --text-ink: #17181B;
+      --text-gray: #5C5D62;
+      --text-on-dark: #F2F1EE;
+      --muted-on-dark: #A2A4AA;
+      --font-heading: 'Bebas Neue', 'Oswald', Impact, sans-serif;
+      --font-body: 'Inter', 'Roboto', Arial, sans-serif;
+      --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+      --shadow-card: 0 10px 34px rgba(18, 19, 22, 0.10);
+      --shadow-card-hover: 0 16px 44px rgba(18, 19, 22, 0.16);
+    }
+
+    /* ========================================
+       RESET & BASE
+    ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-ink);
+      background-color: var(--paper);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========================================
+       ANGLED DIVIDERS — the card's cut edge
+    ======================================== */
+    .slash {
+      height: 90px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .slash-paper-ink {
+      background: linear-gradient(102deg,
+        var(--paper) calc(50% - 5px),
+        var(--red) calc(50% - 5px) calc(50% + 5px),
+        var(--ink) calc(50% + 5px));
+    }
+
+    .slash-ink-paper {
+      background: linear-gradient(102deg,
+        var(--ink) calc(50% - 5px),
+        var(--red) calc(50% - 5px) calc(50% + 5px),
+        var(--paper) calc(50% + 5px));
+    }
+
+    /* ========================================
+       STICKY HEADER — white, card-front style
+    ======================================== */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background-color: rgba(250, 250, 248, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 6px 24px rgba(18, 19, 22, 0.10);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 46px;
+      width: auto;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo-main {
+      font-family: var(--font-heading);
+      font-size: 1.9rem;
+      letter-spacing: 0.1em;
+      color: var(--text-ink);
+    }
+
+    .logo-sub {
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-top: 3px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav-link {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-ink);
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background-color: var(--red);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-link:focus { color: var(--red); outline: none; }
+    .nav-link:hover::after, .nav-link:focus::after { width: 100%; }
+    .nav-link:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--red);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 11px 20px;
+      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .header-cta:hover, .header-cta:focus {
+      background-color: var(--red-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(193, 13, 23, 0.35);
+      outline: none;
+    }
+
+    .header-cta:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+    .header-cta svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px; height: 3px;
+      background-color: var(--text-ink);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+    /* ========================================
+       HERO — the business card, full bleed
+    ======================================== */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
+      min-height: 100vh;
+      padding-top: 76px;
+      background-color: var(--paper);
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 40px;
+      position: relative;
+    }
+
+    .hero-logo {
+      width: min(100%, 460px);
+      height: auto;
+    }
+
+    .hero-motto {
+      margin-top: 28px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-motto .dot { color: var(--red); }
+
+    .hero-right {
+      position: relative;
+      background-color: var(--ink);
+      display: flex;
+      align-items: center;
+      clip-path: polygon(96px 0, 100% 0, 100% 100%, 0 100%);
+      padding: 80px 56px 80px 150px;
+    }
+
+    /* red slash along the cut edge, like the card */
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: var(--red);
+      clip-path: polygon(96px 0, 112px 0, 16px 100%, 0 100%);
+      pointer-events: none;
+    }
+
+    /* faint blueprint grid inside the dark panel */
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      pointer-events: none;
+    }
+
+    .hero-panel {
+      position: relative;
+      z-index: 2;
+      max-width: 560px;
+    }
+
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 18px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 5.6vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: 0.04em;
+      color: var(--text-on-dark);
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .hero-headline span { color: var(--red); }
+
+    .hero-subhead {
+      font-size: clamp(0.98rem, 1.4vw, 1.1rem);
+      color: var(--muted-on-dark);
+      max-width: 460px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 15px 30px;
+      text-transform: uppercase;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--red);
+      color: #fff;
+      border-color: var(--red);
+    }
+
+    .btn-primary:hover, .btn-primary:focus {
+      background-color: var(--red-dark);
+      border-color: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(193, 13, 23, 0.35);
+      outline: none;
+    }
+
+    .btn-outline-light {
+      background-color: transparent;
+      color: var(--text-on-dark);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .btn-outline-light:hover, .btn-outline-light:focus {
+      border-color: var(--red);
+      color: var(--red);
+      outline: none;
+    }
+
+    .btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+
+    .hero-creds {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-on-dark);
+      border-top: 1px solid var(--line-dark);
+      padding-top: 22px;
+    }
+
+    .hero-creds .pipe { color: var(--red); }
+
+    /* ========================================
+       SECTION HEADER PATTERN
+    ======================================== */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.05;
+    }
+
+    .section-rule {
+      width: 84px;
+      height: 4px;
+      background-color: var(--red);
+      margin-top: 16px;
+    }
+
+    .section-header { margin-bottom: 56px; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-rule { margin-left: auto; margin-right: auto; }
+
+    /* ========================================
+       SERVICES — white, card-style tiles
+    ======================================== */
+    .services {
+      background-color: var(--paper);
+      padding: 110px 0 120px;
+    }
+
+    .services .section-title { color: var(--text-ink); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .service-card {
+      background-color: #fff;
+      border: 1px solid var(--line);
+      border-bottom: 4px solid var(--ink);
+      padding: 42px 34px 38px;
+      position: relative;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-card-hover);
+      border-bottom-color: var(--red);
+    }
+
+    .service-number {
+      position: absolute;
+      top: 22px; right: 26px;
+      font-family: var(--font-mono);
+      font-size: 1.9rem;
+      color: var(--line);
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+
+    .service-card:hover .service-number { color: rgba(193, 13, 23, 0.35); }
+
+    .service-icon svg {
+      width: 88px;
+      height: 88px;
+      display: block;
+      color: var(--red);
+      margin-bottom: 24px;
+    }
+
+    .service-title {
+      font-family: var(--font-heading);
+      font-size: 1.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-ink);
+      margin-bottom: 10px;
+    }
+
+    .service-tags {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+
+    .service-desc {
+      font-size: 0.95rem;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       WHY AVILA — black panel
+    ======================================== */
+    .why-avila {
+      background-color: var(--ink);
+      padding: 110px 0 120px;
+      position: relative;
+    }
+
+    .why-avila::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 72px 72px;
+      pointer-events: none;
+    }
+
+    .why-avila .container { position: relative; z-index: 1; }
+    .why-avila .section-title { color: var(--text-on-dark); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      margin-bottom: 72px;
+    }
+
+    .why-card {
+      background-color: var(--ink-2);
+      border: 1px solid var(--line-dark);
+      border-left: 4px solid var(--red);
+      padding: 36px 30px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      background-color: #1F2024;
+    }
+
+    .why-icon {
+      width: 58px;
+      height: 58px;
+      border: 2px solid var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    .why-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--red);
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .why-title {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-on-dark);
+      margin-bottom: 10px;
+    }
+
+    .why-desc {
+      font-size: 0.92rem;
+      color: var(--muted-on-dark);
+      line-height: 1.7;
+    }
+
+    /* Owner quote — card motto style */
+    .owner-quote {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      padding-top: 46px;
+    }
+
+    .owner-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-heading);
+      font-size: 6.5rem;
+      line-height: 1;
+      color: var(--red);
+    }
+
+    .quote-text {
+      font-size: 1.18rem;
+      font-style: italic;
+      color: #D8D7D3;
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    .quote-attribution {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-style: normal;
+    }
+
+    .cert-strip {
+      margin-top: 56px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted-on-dark);
+      border-top: 1px solid var(--line-dark);
+      border-bottom: 1px solid var(--line-dark);
+      padding: 18px 12px;
+    }
+
+    .cert-strip .pipe { color: var(--red); }
+
+    /* ========================================
+       SERVICE AREA — white
+    ======================================== */
+    .service-area {
+      background-color: var(--paper);
+      padding: 110px 0 120px;
+    }
+
+    .service-area .section-title { color: var(--text-ink); }
+
+    .area-city {
+      font-family: var(--font-mono);
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      text-align: center;
+      margin: 18px 0 14px;
+    }
+
+    .area-text {
+      text-align: center;
+      color: var(--text-gray);
+      max-width: 620px;
+      margin: 0 auto 52px;
+      line-height: 1.7;
+    }
+
+    .cities-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      max-width: 940px;
+      margin: 0 auto;
+    }
+
+    .city-item {
+      text-align: center;
+      padding: 14px 8px;
+      background-color: #fff;
+      border: 1px solid var(--line);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-ink);
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .city-item:hover {
+      border-color: var(--red);
+      color: var(--red);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(18, 19, 22, 0.08);
+    }
+
+    /* ========================================
+       CONTACT — black panel, card-back style
+    ======================================== */
+    .contact {
+      background-color: var(--ink);
+      padding: 110px 0 120px;
+      position: relative;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 72px 72px;
+      pointer-events: none;
+    }
+
+    .contact .container { position: relative; z-index: 1; }
+    .contact .section-title { color: var(--text-on-dark); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-name {
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-on-dark);
+      line-height: 1;
+    }
+
+    .contact-role {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      border-bottom: 2px solid var(--red);
+      display: inline-block;
+      padding-bottom: 10px;
+      margin: 10px 0 34px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .contact-ic svg {
+      width: 46px;
+      height: 46px;
+      display: block;
+      color: var(--red);
+    }
+
+    .contact-item.plain { padding-left: 64px; }
+
+    .contact-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted-on-dark);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .contact-value {
+      font-size: 1.06rem;
+      font-weight: 600;
+      color: var(--text-on-dark);
+    }
+
+    .contact-value a { transition: color 0.2s ease; }
+    .contact-value a:hover, .contact-value a:focus { color: var(--red); outline: none; }
+    .contact-value a:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
+
+    .phone-big {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    .phone-big a { color: var(--red); }
+
+    .contact-creds {
+      margin-top: 38px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-on-dark);
+      border-top: 1px solid var(--line-dark);
+      padding-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-creds .pipe { color: var(--red); }
+
+    /* Form — white card on black */
+    .contact-form-wrapper { position: relative; }
+
+    .contact-form,
+    .form-success {
+      background-color: #fff;
+      border-top: 5px solid var(--red);
+      padding: 42px 40px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    .form-title {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-ink);
+      margin-bottom: 26px;
+    }
+
+    .form-group { margin-bottom: 18px; }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+      margin-bottom: 7px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 13px 15px;
+      background-color: var(--paper);
+      border: 1px solid var(--line);
+      color: var(--text-ink);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(193, 13, 23, 0.14);
+    }
+
+    .form-textarea { resize: vertical; min-height: 110px; }
+
+    .form-select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C10D17' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      padding-right: 40px;
+    }
+
+    .form-submit {
+      width: 100%;
+      background-color: var(--red);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 16px;
+      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-submit:hover, .form-submit:focus {
+      background-color: var(--red-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(193, 13, 23, 0.3);
+      outline: none;
+    }
+
+    .form-submit:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+
+    .form-success { display: none; text-align: center; }
+    .form-success.visible { display: block; }
+
+    .form-success-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 18px;
+      border: 2px solid var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-success-icon svg {
+      width: 28px; height: 28px;
+      stroke: var(--red);
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .form-success-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-ink);
+      margin-bottom: 8px;
+    }
+
+    .form-success-text { color: var(--text-gray); font-size: 0.95rem; }
+
+    /* ========================================
+       FOOTER — card bottom strip
+    ======================================== */
+    .site-footer {
+      background-color: var(--ink-3);
+    }
+
+    .footer-motto {
+      border-top: 1px solid var(--line-dark);
+      border-bottom: 1px solid var(--line-dark);
+      padding: 20px 12px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-on-dark);
+    }
+
+    .footer-motto .dot { color: var(--red); padding: 0 10px; }
+    .footer-motto .accent { color: var(--red); }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 36px;
+      padding: 52px 0 40px;
+    }
+
+    .footer-logo-badge {
+      display: inline-flex;
+      background: #fff;
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+
+    .footer-logo-badge img {
+      height: 96px;
+      width: auto;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted-on-dark);
+      transition: color 0.2s ease;
+    }
+
+    .footer-nav-link:hover, .footer-nav-link:focus { color: var(--red); outline: none; }
+    .footer-nav-link:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 22px 0 30px;
+      border-top: 1px solid var(--line-dark);
+    }
+
+    .footer-copyright { font-size: 0.8rem; color: var(--muted-on-dark); }
+
+    .footer-disclaimer {
+      font-size: 0.74rem;
+      color: rgba(162, 164, 170, 0.55);
+      font-style: italic;
+    }
+
+    /* ========================================
+       SCROLL REVEAL
+    ======================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ========================================
+       MOBILE NAV OVERLAY — white sheet
+    ======================================== */
+    .mobile-nav {
+      position: fixed;
+      top: 76px; left: 0; right: 0; bottom: 0;
+      background-color: rgba(250, 250, 248, 0.99);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-nav.active { transform: translateX(0); }
+
+    .mobile-nav-link {
+      font-family: var(--font-heading);
+      font-size: 2.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-ink);
+      transition: color 0.2s ease;
+    }
+
+    .mobile-nav-link:hover, .mobile-nav-link:focus { color: var(--red); outline: none; }
+    .mobile-nav-cta { margin-top: 12px; }
+
+    /* ========================================
+       RESPONSIVE
+    ======================================== */
+    @media (max-width: 1080px) {
+      .hero-right { padding: 70px 40px 70px 130px; }
+    }
+
+    @media (max-width: 992px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-left { padding: 56px 24px 40px; }
+      .hero-logo { width: min(78%, 400px); }
+      .hero-right {
+        clip-path: none;
+        padding: 60px 32px;
+        justify-content: center;
+      }
+      .hero-right::before {
+        clip-path: none;
+        bottom: auto;
+        height: 6px;
+        right: 0;
+      }
+      .hero-panel { text-align: center; max-width: 640px; }
+      .hero-ctas { justify-content: center; }
+      .hero-creds { justify-content: center; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .cities-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 52px; }
+      .slash { height: 64px; }
+    }
+
+    @media (max-width: 768px) {
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .cities-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-main { flex-direction: column; text-align: center; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .btn { width: 100%; max-width: 340px; }
+      .contact-item.plain { padding-left: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 18px; }
+      .services, .why-avila, .service-area, .contact { padding: 70px 0 80px; }
+      .contact-form, .form-success { padding: 30px 22px; }
+      .footer-motto { font-size: 0.68rem; letter-spacing: 0.14em; }
+      .slash { height: 44px; }
+      .logo img { height: 38px; }
+      .logo-main { font-size: 1.6rem; }
+    }
+
+    /* ========================================
+       SELECTION
+    ======================================== */
+    ::selection {
+      background-color: rgba(193, 13, 23, 0.25);
+      color: inherit;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========================================
+       STICKY HEADER
+  ======================================== -->
+  <header class="site-header" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="logo" aria-label="Avila Infrastructure & Contracting - Home">
+          <img src="assets/avila-mark.png" alt="">
+          <span class="logo-text">
+            <span class="logo-main">AVILA</span>
+            <span class="logo-sub">Infrastructure & Contracting</span>
+          </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#why-avila" class="nav-link">Why Avila</a>
+          <a href="#service-area" class="nav-link">Service Area</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="tel:5593494392" class="header-cta" aria-label="Call (559) 349-4392">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            (559) 349-4392
+          </a>
+        </nav>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#services" class="mobile-nav-link">Services</a>
+    <a href="#why-avila" class="mobile-nav-link">Why Avila</a>
+    <a href="#service-area" class="mobile-nav-link">Service Area</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+    <a href="tel:5593494392" class="btn btn-primary mobile-nav-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+      Call Now
+    </a>
+  </nav>
+
+  <main>
+
+    <!-- ========================================
+         HERO — business card, full bleed
+    ======================================== -->
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="hero-left">
+        <img class="hero-logo" src="assets/avila-logo.png" alt="Avila Infrastructure & Contracting — Infrastructure, Ag Solutions, Utility Installation">
+        <p class="hero-motto">Professional <span class="dot">&bull;</span> Reliable <span class="dot">&bull;</span> Built on Integrity</p>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-panel">
+          <p class="hero-label">Lemoore, CA &mdash; Central Valley</p>
+          <h1 class="hero-headline">Utility Infrastructure <span>Done Right</span></h1>
+          <p class="hero-subhead">
+            Owner-operated utility contracting serving California's Central Valley.
+            Power, communications, and underground infrastructure built to spec and built to last.
+          </p>
+          <div class="hero-ctas">
+            <a href="tel:5593494392" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              Call (559) 349-4392
+            </a>
+            <a href="#contact" class="btn btn-outline-light">Request an Estimate</a>
+          </div>
+          <p class="hero-creds">Licensed <span class="pipe">|</span> Insured <span class="pipe">|</span> Bonded <span class="pipe">|</span> California</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SERVICES
+    ======================================== -->
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-header centered reveal">
+          <p class="section-label">What We Do</p>
+          <h2 class="section-title" id="services-title">Our Services</h2>
+          <div class="section-rule" aria-hidden="true"></div>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal reveal-delay-1">
+            <span class="service-number" aria-hidden="true">01</span>
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="4"/>
+                <g stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none">
+                  <line x1="50" y1="23" x2="50" y2="79"/>
+                  <line x1="29" y1="33" x2="71" y2="33"/>
+                  <line x1="36" y1="43" x2="64" y2="43"/>
+                  <line x1="33" y1="33" x2="33" y2="27"/>
+                  <line x1="67" y1="33" x2="67" y2="27"/>
+                  <line x1="40" y1="43" x2="40" y2="38"/>
+                  <line x1="60" y1="43" x2="60" y2="38"/>
+                </g>
+              </svg>
+            </span>
+            <h3 class="service-title">Infrastructure</h3>
+            <p class="service-tags">Power &bull; Communications &bull; Underground</p>
+            <p class="service-desc">Power, communications, and underground systems built to spec and built to last.</p>
+          </article>
+
+          <article class="service-card reveal reveal-delay-2">
+            <span class="service-number" aria-hidden="true">02</span>
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="4"/>
+                <g fill="currentColor">
+                  <rect x="27" y="49" width="13" height="11" rx="2"/>
+                  <rect x="40" y="42" width="11" height="18" rx="1.5"/>
+                  <rect x="51" y="51" width="17" height="9" rx="2"/>
+                  <rect x="55" y="43" width="3.5" height="8"/>
+                </g>
+                <g stroke="currentColor" stroke-width="4" fill="none">
+                  <circle cx="37" cy="66" r="9.5"/>
+                  <circle cx="66" cy="69" r="6.5"/>
+                </g>
+                <circle cx="37" cy="66" r="3" fill="currentColor"/>
+                <circle cx="66" cy="69" r="2" fill="currentColor"/>
+                <line x1="24" y1="79" x2="76" y2="79" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <h3 class="service-title">Ag Solutions</h3>
+            <p class="service-tags">Service Poles &bull; Pump Power &bull; Utility Install</p>
+            <p class="service-desc">Service poles, pump power, and utility installation for Central Valley agriculture.</p>
+          </article>
+
+          <article class="service-card reveal reveal-delay-3">
+            <span class="service-number" aria-hidden="true">03</span>
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="4"/>
+                <g fill="currentColor">
+                  <rect x="30" y="66" width="32" height="10" rx="5"/>
+                  <rect x="33" y="50" width="20" height="14" rx="2"/>
+                </g>
+                <polyline points="53,53 66,41 75,52" stroke="currentColor" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M75 52 l-3 11 10 -2 z" fill="currentColor"/>
+              </svg>
+            </span>
+            <h3 class="service-title">Utility Installation</h3>
+            <p class="service-tags">Overhead &bull; Underground &bull; Connections</p>
+            <p class="service-desc">Overhead and underground lines, service connections, and turnkey utility infrastructure.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="slash slash-paper-ink" aria-hidden="true"></div>
+
+    <!-- ========================================
+         WHY AVILA
+    ======================================== -->
+    <section class="why-avila" id="why-avila" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-header centered reveal">
+          <p class="section-label">The Avila Difference</p>
+          <h2 class="section-title" id="why-title">Why Avila</h2>
+          <div class="section-rule" aria-hidden="true"></div>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card reveal reveal-delay-1">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h3 class="why-title">Owner-Operated</h3>
+            <p class="why-desc">Jonathan Avila oversees every project personally. No subcontractors, no runaround &mdash; direct accountability from start to finish.</p>
+          </article>
+
+          <article class="why-card reveal reveal-delay-2">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polyline points="9 12 11 14 15 10"/>
+              </svg>
+            </div>
+            <h3 class="why-title">Licensed, Insured &amp; Bonded</h3>
+            <p class="why-desc">Full California licensing, insurance, and bonding. Your project is protected, and so is your peace of mind.</p>
+          </article>
+
+          <article class="why-card reveal reveal-delay-3">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 class="why-title">Ag-Season Scheduling</h3>
+            <p class="why-desc">We know the Central Valley growing season doesn't wait. We schedule around harvests, plantings, and weather windows.</p>
+          </article>
+        </div>
+
+        <blockquote class="owner-quote reveal">
+          <p class="quote-text">I started this company because I believe utility work should be done right the first time. No shortcuts, no excuses. When you hire Avila, you get me on the job &mdash; not a crew you never met. That's my word.</p>
+          <cite class="quote-attribution">&mdash; Jonathan Avila, Owner/Operator</cite>
+        </blockquote>
+
+        <div class="cert-strip reveal">
+          Licensed <span class="pipe">|</span> Insured <span class="pipe">|</span> Bonded &mdash; State of California
+        </div>
+      </div>
+    </section>
+
+    <div class="slash slash-ink-paper" aria-hidden="true"></div>
+
+    <!-- ========================================
+         SERVICE AREA
+    ======================================== -->
+    <section class="service-area" id="service-area" aria-labelledby="area-title">
+      <div class="container">
+        <div class="section-header centered reveal" style="margin-bottom: 0;">
+          <p class="section-label">Service Area</p>
+          <h2 class="section-title" id="area-title">Serving the Central Valley</h2>
+          <div class="section-rule" aria-hidden="true"></div>
+        </div>
+
+        <div class="reveal">
+          <p class="area-city">Lemoore, CA</p>
+          <p class="area-text">Based in Lemoore. Available across the Central Valley for utility infrastructure, agricultural electrical, and contracting projects.</p>
+        </div>
+
+        <div class="cities-grid reveal reveal-delay-1">
+          <span class="city-item">Fresno</span>
+          <span class="city-item">Clovis</span>
+          <span class="city-item">Madera</span>
+          <span class="city-item">Sanger</span>
+          <span class="city-item">Selma</span>
+          <span class="city-item">Reedley</span>
+          <span class="city-item">Kingsburg</span>
+          <span class="city-item">Hanford</span>
+          <span class="city-item">Visalia</span>
+          <span class="city-item">Tulare</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="slash slash-paper-ink" aria-hidden="true"></div>
+
+    <!-- ========================================
+         CONTACT
+    ======================================== -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-header centered reveal">
+          <p class="section-label">Get in Touch</p>
+          <h2 class="section-title" id="contact-title">Contact</h2>
+          <div class="section-rule" aria-hidden="true"></div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info reveal reveal-delay-1">
+            <p class="contact-name">Jonathan Avila</p>
+            <p class="contact-role">Owner / Operator</p>
+
+            <div class="contact-item">
+              <span class="contact-ic" aria-hidden="true">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="47" fill="currentColor"/>
+                  <g transform="translate(27 27) scale(1.92)" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </g>
+                </svg>
+              </span>
+              <div>
+                <span class="contact-label">Phone</span>
+                <p class="contact-value phone-big"><a href="tel:5593494392">(559) 349-4392</a></p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-ic" aria-hidden="true">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="47" fill="currentColor"/>
+                  <rect x="30" y="36" width="40" height="28" rx="3.5" fill="none" stroke="#fff" stroke-width="4"/>
+                  <polyline points="33,41 50,54 67,41" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div>
+                <span class="contact-label">Email</span>
+                <p class="contact-value"><a href="mailto:jonathan@avilainfrastructure.com">jonathan@avilainfrastructure.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-ic" aria-hidden="true">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="47" fill="currentColor"/>
+                  <g fill="none" stroke="#fff" stroke-width="3.6">
+                    <circle cx="50" cy="50" r="18"/>
+                    <ellipse cx="50" cy="50" rx="8.5" ry="18"/>
+                    <line x1="33" y1="44" x2="67" y2="44"/>
+                    <line x1="33" y1="56" x2="67" y2="56"/>
+                  </g>
+                </svg>
+              </span>
+              <div>
+                <span class="contact-label">Website</span>
+                <p class="contact-value"><a href="https://avilainfrastructure.com">avilainfrastructure.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact-item plain">
+              <div>
+                <span class="contact-label">Location</span>
+                <p class="contact-value">Lemoore, CA &mdash; Central Valley</p>
+              </div>
+            </div>
+
+            <div class="contact-item plain">
+              <div>
+                <span class="contact-label">Availability</span>
+                <p class="contact-value">Monday &ndash; Saturday<br><span style="color: var(--muted-on-dark); font-weight: 400;">Emergency services available</span></p>
+              </div>
+            </div>
+
+            <p class="contact-creds">Licensed <span class="pipe">|</span> Insured <span class="pipe">|</span> Bonded</p>
+          </div>
+
+          <div class="contact-form-wrapper reveal reveal-delay-2">
+            <form class="contact-form" id="contactForm" novalidate>
+              <h3 class="form-title">Request an Estimate</h3>
+
+              <div class="form-group">
+                <label for="formName" class="form-label">Name</label>
+                <input type="text" id="formName" name="name" class="form-input" placeholder="Your name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="formPhone" class="form-label">Phone</label>
+                <input type="tel" id="formPhone" name="phone" class="form-input" placeholder="(559) 000-0000" required>
+              </div>
+
+              <div class="form-group">
+                <label for="formEmail" class="form-label">Email</label>
+                <input type="email" id="formEmail" name="email" class="form-input" placeholder="you@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="formType" class="form-label">Type of Work</label>
+                <select id="formType" name="type" class="form-select" required>
+                  <option value="" disabled selected>Select a service type</option>
+                  <option value="infrastructure">Infrastructure</option>
+                  <option value="ag-solutions">Ag Solutions</option>
+                  <option value="utility-installation">Utility Installation</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="formMessage" class="form-label">Project Description</label>
+                <textarea id="formMessage" name="message" class="form-textarea" placeholder="Tell us about your project..." required></textarea>
+              </div>
+
+              <button type="submit" class="form-submit">Send Request</button>
+            </form>
+
+            <div class="form-success" id="formSuccess" aria-live="polite">
+              <div class="form-success-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <p class="form-success-title">Message Sent</p>
+              <p class="form-success-text">Thanks for reaching out. Jonathan will get back to you within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================
+       FOOTER
+  ======================================== -->
+  <footer class="site-footer">
+    <div class="footer-motto">
+      Professional <span class="dot">&bull;</span> Reliable <span class="dot">&bull;</span> <span class="accent">Built on Integrity</span>
+    </div>
+
+    <div class="container">
+      <div class="footer-main">
+        <span class="footer-logo-badge"><img src="assets/avila-logo.png" alt="Avila Infrastructure & Contracting"></span>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#services" class="footer-nav-link">Services</a>
+          <a href="#why-avila" class="footer-nav-link">Why Avila</a>
+          <a href="#service-area" class="footer-nav-link">Service Area</a>
+          <a href="#contact" class="footer-nav-link">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2025 Avila Infrastructure &amp; Contracting. All rights reserved. Licensed &bull; Insured &bull; Bonded &mdash; State of California.</p>
+        <p class="footer-disclaimer">Emergency and urgent work availability may vary. Call for immediate assistance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       JAVASCRIPT
+  ======================================== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // Header scroll shadow
+      const header = document.getElementById('header');
+      let ticking = false;
+
+      function updateHeader() {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(updateHeader);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Mobile hamburger menu
+      const hamburger = document.getElementById('hamburger');
+      const mobileNav = document.getElementById('mobileNav');
+      const mobileNavLinks = mobileNav.querySelectorAll('.mobile-nav-link');
+
+      hamburger.addEventListener('click', function() {
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', String(!isExpanded));
+        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+      });
+
+      mobileNavLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          mobileNav.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Scroll reveal
+      const revealElements = document.querySelectorAll('.reveal');
+
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+
+        revealElements.forEach(function(el) { revealObserver.observe(el); });
+      } else {
+        revealElements.forEach(function(el) { el.classList.add('visible'); });
+      }
+
+      // Contact form
+      const contactForm = document.getElementById('contactForm');
+      const formSuccess = document.getElementById('formSuccess');
+
+      contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const fields = ['formName', 'formPhone', 'formEmail', 'formType', 'formMessage'];
+        for (let i = 0; i < fields.length; i++) {
+          const field = document.getElementById(fields[i]);
+          if (!field.value.trim()) {
+            field.focus();
+            return;
+          }
+        }
+
+        contactForm.style.display = 'none';
+        formSuccess.classList.add('visible');
+        contactForm.reset();
+      });
+
+      // Smooth scroll for anchors
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(event) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+
+          const target = document.querySelector(href);
+          if (target) {
+            event.preventDefault();
+            const headerHeight = header.offsetHeight;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+          }
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
