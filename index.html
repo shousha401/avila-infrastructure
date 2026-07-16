@@ -5,13 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Avila Infrastructure & Contracting | Utility Infrastructure | Lemoore, CA</title>
   <meta name="description" content="Avila Infrastructure & Contracting — professional utility infrastructure, agricultural electrical, and contracting services across California's Central Valley. Licensed, insured, bonded. Call (559) 349-4392.">
+  <link rel="canonical" href="https://avilainfrastructure.com/">
+  <meta name="keywords" content="utility infrastructure, utility contractor, agricultural electrical, ag solutions, service poles, pump power, underground utilities, Central Valley, Lemoore, Fresno, contracting">
+  <meta name="author" content="Avila Infrastructure & Contracting">
+  <meta name="theme-color" content="#C10D17">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Avila Infrastructure & Contracting | Lemoore, CA">
   <meta property="og:description" content="Utility infrastructure done right. Serving the Central Valley with power, communications, underground systems, and ag solutions.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://avilainfrastructure.com/">
-  <meta property="og:image" content="https://avilainfrastructure.com/og-image.jpg">
+  <meta property="og:site_name" content="Avila Infrastructure & Contracting">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://avilainfrastructure.com/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Avila Infrastructure & Contracting — Utility Infrastructure Done Right, Lemoore CA">
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Avila Infrastructure & Contracting | Lemoore, CA">
+  <meta name="twitter:description" content="Utility infrastructure done right. Serving the Central Valley with power, communications, underground systems, and ag solutions.">
+  <meta name="twitter:image" content="https://avilainfrastructure.com/assets/og-image.jpg">
+
+  <!-- Local business geo -->
+  <meta name="geo.region" content="US-CA">
+  <meta name="geo.placename" content="Lemoore, California">
+  <meta name="geo.position" content="36.3008;-119.7829">
+  <meta name="ICBM" content="36.3008, -119.7829">
+
   <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+
+  <!-- Structured data: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "name": "Avila Infrastructure & Contracting",
+    "description": "Owner-operated utility contracting serving California's Central Valley — power, communications, underground infrastructure, and agricultural electrical solutions.",
+    "url": "https://avilainfrastructure.com/",
+    "telephone": "+1-559-349-4392",
+    "email": "jonathan@avilainfrastructure.com",
+    "image": "https://avilainfrastructure.com/assets/og-image.jpg",
+    "logo": "https://avilainfrastructure.com/assets/avila-logo.png",
+    "founder": { "@type": "Person", "name": "Jonathan Avila" },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lemoore",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 36.3008,
+      "longitude": -119.7829
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Lemoore" },
+      { "@type": "City", "name": "Fresno" },
+      { "@type": "City", "name": "Clovis" },
+      { "@type": "City", "name": "Madera" },
+      { "@type": "City", "name": "Sanger" },
+      { "@type": "City", "name": "Selma" },
+      { "@type": "City", "name": "Reedley" },
+      { "@type": "City", "name": "Kingsburg" },
+      { "@type": "City", "name": "Hanford" },
+      { "@type": "City", "name": "Visalia" },
+      { "@type": "City", "name": "Tulare" }
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    },
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Utility Infrastructure", "description": "Power, communications, and underground systems." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ag Solutions", "description": "Service poles, pump power, and utility installation for agriculture." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Utility Installation", "description": "Overhead and underground lines and service connections." } }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -883,6 +957,19 @@
     }
 
     .form-submit:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+    .form-submit[disabled] { opacity: 0.65; cursor: default; transform: none; box-shadow: none; }
+
+    .form-status {
+      display: none;
+      margin-top: 14px;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .form-status.visible { display: block; }
+    .form-status.error { color: var(--red); }
+    .form-status.error a { color: var(--red); font-weight: 700; text-decoration: underline; }
 
     .form-success { display: none; text-align: center; }
     .form-success.visible { display: block; }
@@ -1484,6 +1571,7 @@
               </div>
 
               <button type="submit" class="form-submit">Send Request</button>
+              <p class="form-status" id="formStatus" role="alert" aria-live="assertive"></p>
             </form>
 
             <div class="form-success" id="formSuccess" aria-live="polite">
@@ -1523,7 +1611,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-copyright">&copy; 2025 Avila Infrastructure &amp; Contracting. All rights reserved. Licensed &bull; Insured &bull; Bonded &mdash; State of California.</p>
+        <p class="footer-copyright">&copy; <span id="year">2026</span> Avila Infrastructure &amp; Contracting. All rights reserved. Licensed &bull; Insured &bull; Bonded &mdash; State of California.</p>
         <p class="footer-disclaimer">Emergency and urgent work availability may vary. Call for immediate assistance.</p>
       </div>
     </div>
@@ -1592,25 +1680,111 @@
         revealElements.forEach(function(el) { el.classList.add('visible'); });
       }
 
+      // Auto-update copyright year
+      const yearEl = document.getElementById('year');
+      if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+
       // Contact form
+      // To deliver leads straight to an inbox (no email client needed), create a form at
+      // https://formspree.io for jonathan@avilainfrastructure.com and paste the endpoint below.
+      // While FORM_ENDPOINT is empty, the form falls back to opening the visitor's email app.
+      const FORM_ENDPOINT = '';
+      const CONTACT_EMAIL = 'jonathan@avilainfrastructure.com';
+
       const contactForm = document.getElementById('contactForm');
       const formSuccess = document.getElementById('formSuccess');
+      const formStatus = document.getElementById('formStatus');
+      const submitBtn = contactForm.querySelector('.form-submit');
+
+      function showStatus(message, isError) {
+        formStatus.innerHTML = message;
+        formStatus.classList.add('visible');
+        formStatus.classList.toggle('error', !!isError);
+      }
+
+      function clearStatus() {
+        formStatus.textContent = '';
+        formStatus.classList.remove('visible', 'error');
+      }
+
+      function showSuccess() {
+        contactForm.style.display = 'none';
+        formSuccess.classList.add('visible');
+        formSuccess.focus && formSuccess.focus();
+        contactForm.reset();
+      }
+
+      function collectData() {
+        return {
+          name: document.getElementById('formName').value.trim(),
+          phone: document.getElementById('formPhone').value.trim(),
+          email: document.getElementById('formEmail').value.trim(),
+          type: document.getElementById('formType').value,
+          message: document.getElementById('formMessage').value.trim()
+        };
+      }
+
+      function sendViaMailto(data) {
+        const subject = 'Estimate Request — ' + data.name + ' (' + data.type + ')';
+        const body =
+          'Name: ' + data.name + '\n' +
+          'Phone: ' + data.phone + '\n' +
+          'Email: ' + data.email + '\n' +
+          'Type of Work: ' + data.type + '\n\n' +
+          'Project Description:\n' + data.message + '\n';
+        window.location.href = 'mailto:' + CONTACT_EMAIL +
+          '?subject=' + encodeURIComponent(subject) +
+          '&body=' + encodeURIComponent(body);
+      }
+
+      function sendViaFormspree(data) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+        return fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function(response) {
+          if (response.ok) {
+            showSuccess();
+          } else {
+            throw new Error('Request failed');
+          }
+        }).catch(function() {
+          showStatus(
+            'Something went wrong sending your request. Please call ' +
+            '<a href="tel:5593494392">(559) 349-4392</a> instead.',
+            true
+          );
+        }).finally(function() {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Request';
+        });
+      }
 
       contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
+        clearStatus();
 
         const fields = ['formName', 'formPhone', 'formEmail', 'formType', 'formMessage'];
         for (let i = 0; i < fields.length; i++) {
           const field = document.getElementById(fields[i]);
           if (!field.value.trim()) {
             field.focus();
+            showStatus('Please fill in every field so we can prepare an accurate estimate.', true);
             return;
           }
         }
 
-        contactForm.style.display = 'none';
-        formSuccess.classList.add('visible');
-        contactForm.reset();
+        const data = collectData();
+
+        if (FORM_ENDPOINT) {
+          sendViaFormspree(data);
+        } else {
+          // No backend configured yet — hand off to the visitor's email client.
+          sendViaMailto(data);
+          showSuccess();
+        }
       });
 
       // Smooth scroll for anchors
