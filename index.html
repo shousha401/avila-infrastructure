@@ -1877,10 +1877,10 @@
       const yearEl = document.getElementById('year');
       if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
 
-      // Contact form — submissions POST to Formspree, which emails the recipient
-      // configured in the Formspree dashboard. If FORM_ENDPOINT is ever cleared, the
-      // form falls back to opening the visitor's email app (mailto).
-      const FORM_ENDPOINT = 'https://formspree.io/f/xzdndjvw';
+      // Contact form — submissions POST to our own /api/contact serverless function,
+      // which emails the lead, auto-replies to the customer, and (optionally) texts Jonathan.
+      // If FORM_ENDPOINT is ever cleared, the form falls back to opening the email app (mailto).
+      const FORM_ENDPOINT = '/api/contact';
       const CONTACT_EMAIL = 'jonathan@avilainfrastructure.com';
 
       const contactForm = document.getElementById('contactForm');
@@ -1947,7 +1947,7 @@
           '&body=' + encodeURIComponent(body);
       }
 
-      function sendViaFormspree(data) {
+      function submitLead(data) {
         submitBtn.disabled = true;
         submitText.textContent = 'Sending…';
         const payload = {
@@ -2004,7 +2004,7 @@
         const data = collectData();
 
         if (FORM_ENDPOINT) {
-          sendViaFormspree(data);
+          submitLead(data);
         } else {
           // No backend configured yet — hand off to the visitor's email client.
           sendViaMailto(data);
