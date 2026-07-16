@@ -789,15 +789,47 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      gap: 48px;
+      align-items: stretch;
+    }
+
+    /* ---- Left: dispatch card ---- */
+    .contact-info { display: flex; flex-direction: column; }
+
+    .contact-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      align-self: flex-start;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-on-dark);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line-dark);
+      padding: 8px 14px;
+      margin-bottom: 26px;
+    }
+
+    .status-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--red);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(193, 13, 23, 0.55); }
+      70%  { box-shadow: 0 0 0 10px rgba(193, 13, 23, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(193, 13, 23, 0); }
     }
 
     .contact-name {
       font-family: var(--font-heading);
-      font-size: 2.4rem;
-      letter-spacing: 0.06em;
+      font-size: 2.6rem;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--text-on-dark);
       line-height: 1;
@@ -805,64 +837,114 @@
 
     .contact-role {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--red);
-      border-bottom: 2px solid var(--red);
-      display: inline-block;
-      padding-bottom: 10px;
-      margin: 10px 0 34px;
+      margin: 10px 0 30px;
     }
 
-    .contact-item {
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .method {
       display: flex;
       align-items: center;
-      gap: 18px;
-      margin-bottom: 26px;
+      gap: 16px;
+      padding: 15px 18px;
+      background: var(--ink-2);
+      border: 1px solid var(--line-dark);
+      border-left: 3px solid transparent;
+      transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .contact-ic svg {
-      width: 46px;
-      height: 46px;
-      display: block;
-      color: var(--red);
+    .method:hover, .method:focus-visible {
+      border-left-color: var(--red);
+      background: #1F2024;
+      transform: translateX(4px);
+      outline: none;
     }
 
-    .contact-item.plain { padding-left: 64px; }
+    .method:focus-visible { box-shadow: 0 0 0 2px rgba(193, 13, 23, 0.55); }
 
-    .contact-label {
+    .method-ic {
+      flex-shrink: 0;
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--red);
+    }
+
+    .method-ic svg {
+      width: 20px; height: 20px;
+      stroke: #fff; fill: none; stroke-width: 2;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .method-body { display: flex; flex-direction: column; min-width: 0; }
+
+    .method-label {
       font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.22em;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--muted-on-dark);
-      display: block;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
 
-    .contact-value {
-      font-size: 1.06rem;
+    .method-value {
+      font-size: 1rem;
       font-weight: 600;
       color: var(--text-on-dark);
+      line-height: 1.3;
+      word-break: break-word;
     }
 
-    .contact-value a { transition: color 0.2s ease; }
-    .contact-value a:hover, .contact-value a:focus { color: var(--red); outline: none; }
-    .contact-value a:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
+    .method-value.accent { font-family: var(--font-mono); letter-spacing: 0.02em; color: var(--red); }
 
-    .phone-big {
+    .method-arrow {
+      margin-left: auto;
+      align-self: center;
+      color: var(--red);
       font-family: var(--font-mono);
-      font-size: 1.6rem;
-      letter-spacing: 0.04em;
+      font-size: 1.1rem;
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
     }
 
-    .phone-big a { color: var(--red); }
+    .method:hover .method-arrow, .method:focus-visible .method-arrow { opacity: 1; transform: translateX(0); }
+
+    .contact-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line-dark);
+      border: 1px solid var(--line-dark);
+      margin-bottom: 28px;
+    }
+
+    .meta-cell { background: var(--ink); padding: 15px 18px; }
+
+    .meta-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted-on-dark);
+      margin-bottom: 6px;
+    }
+
+    .meta-value { font-size: 0.95rem; font-weight: 600; color: var(--text-on-dark); }
 
     .contact-creds {
-      margin-top: 38px;
+      margin-top: auto;
       font-family: var(--font-mono);
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--text-on-dark);
@@ -875,39 +957,74 @@
 
     .contact-creds .pipe { color: var(--red); }
 
-    /* Form — white card on black */
+    /* ---- Right: estimate form card ---- */
     .contact-form-wrapper { position: relative; }
 
     .contact-form,
     .form-success {
+      position: relative;
       background-color: #fff;
       border-top: 5px solid var(--red);
-      padding: 42px 40px;
+      padding: 40px 38px 34px;
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    /* engineering crop-mark corners */
+    .contact-form::before,
+    .contact-form::after {
+      content: '';
+      position: absolute;
+      width: 15px; height: 15px;
+      pointer-events: none;
+    }
+    .contact-form::before {
+      top: 16px; right: 16px;
+      border-top: 2px solid var(--red);
+      border-right: 2px solid var(--red);
+    }
+    .contact-form::after {
+      bottom: 16px; left: 16px;
+      border-bottom: 2px solid var(--line);
+      border-left: 2px solid var(--line);
+    }
+
+    .form-head { margin-bottom: 24px; }
+
+    .form-index {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
     }
 
     .form-title {
       font-family: var(--font-heading);
-      font-size: 1.7rem;
+      font-size: 1.85rem;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--text-ink);
-      margin-bottom: 26px;
+      line-height: 1;
     }
+
+    .form-sub { font-size: 0.9rem; color: var(--text-gray); margin-top: 9px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
     .form-group { margin-bottom: 18px; }
 
     .form-label {
       display: block;
       font-family: var(--font-mono);
-      font-size: 0.68rem;
+      font-size: 0.66rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-gray);
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
 
-    .form-input, .form-select, .form-textarea {
+    .form-input, .form-textarea {
       width: 100%;
       padding: 13px 15px;
       background-color: var(--paper);
@@ -915,30 +1032,49 @@
       color: var(--text-ink);
       font-family: var(--font-body);
       font-size: 0.95rem;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
       -webkit-appearance: none;
       appearance: none;
       border-radius: 0;
     }
 
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
+    .form-input:focus, .form-textarea:focus {
       outline: none;
       border-color: var(--red);
+      background-color: #fff;
       box-shadow: 0 0 0 3px rgba(193, 13, 23, 0.14);
     }
 
-    .form-textarea { resize: vertical; min-height: 110px; }
+    .form-textarea { resize: vertical; min-height: 104px; }
 
-    .form-select {
-      cursor: pointer;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C10D17' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 15px center;
-      padding-right: 40px;
+    /* service-type chips */
+    .chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .chip {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
     }
 
+    .chip:hover { border-color: var(--red); color: var(--red); transform: translateY(-1px); }
+    .chip.active { background: var(--red); border-color: var(--red); color: #fff; }
+    .chip:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+    .chip-group.error { outline: 2px solid var(--red); outline-offset: 5px; }
+
     .form-submit {
+      position: relative;
+      overflow: hidden;
       width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       background-color: var(--red);
       color: #fff;
       font-size: 0.95rem;
@@ -946,18 +1082,43 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 16px;
-      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      margin-top: 6px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
+    .form-submit .submit-text, .form-submit svg { position: relative; z-index: 1; }
+    .form-submit svg { width: 17px; height: 17px; transition: transform 0.2s ease; }
+
+    .form-submit::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--red-dark);
+      transform: translateX(-101%);
+      transition: transform 0.32s ease;
+    }
+
+    .form-submit:hover::after, .form-submit:focus::after { transform: translateX(0); }
     .form-submit:hover, .form-submit:focus {
-      background-color: var(--red-dark);
       transform: translateY(-1px);
-      box-shadow: 0 8px 20px rgba(193, 13, 23, 0.3);
+      box-shadow: 0 10px 24px rgba(193, 13, 23, 0.34);
       outline: none;
     }
-
+    .form-submit:hover svg { transform: translateX(4px); }
     .form-submit:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
     .form-submit[disabled] { opacity: 0.65; cursor: default; transform: none; box-shadow: none; }
+    .form-submit[disabled]::after { transform: translateX(-101%); }
+
+    .form-alt {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+      margin-top: 16px;
+    }
+    .form-alt a { color: var(--red); font-weight: 700; }
+    .form-alt a:hover, .form-alt a:focus { text-decoration: underline; }
 
     .form-status {
       display: none;
@@ -973,6 +1134,7 @@
 
     .form-success { display: none; text-align: center; }
     .form-success.visible { display: block; }
+    .form-success:focus { outline: none; }
 
     .form-success-icon {
       width: 60px;
@@ -1002,6 +1164,15 @@
     }
 
     .form-success-text { color: var(--text-gray); font-size: 0.95rem; }
+
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .status-dot { animation: none; }
+      .method, .method-arrow, .chip, .form-submit, .form-submit svg, .form-submit::after { transition: none; }
+    }
 
     /* ========================================
        FOOTER — card bottom strip
@@ -1176,7 +1347,6 @@
       .footer-main { flex-direction: column; text-align: center; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .btn { width: 100%; max-width: 340px; }
-      .contact-item.plain { padding-left: 0; }
     }
 
     @media (max-width: 480px) {
@@ -1468,67 +1638,65 @@
 
         <div class="contact-grid">
           <div class="contact-info reveal reveal-delay-1">
+            <span class="contact-status">
+              <span class="status-dot" aria-hidden="true"></span>
+              Available for new projects
+            </span>
+
             <p class="contact-name">Jonathan Avila</p>
             <p class="contact-role">Owner / Operator</p>
 
-            <div class="contact-item">
-              <span class="contact-ic" aria-hidden="true">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="47" fill="currentColor"/>
-                  <g transform="translate(27 27) scale(1.92)" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-                  </g>
-                </svg>
-              </span>
-              <div>
-                <span class="contact-label">Phone</span>
-                <p class="contact-value phone-big"><a href="tel:5593494392">(559) 349-4392</a></p>
-              </div>
+            <div class="contact-methods">
+              <a href="tel:5593494392" class="method">
+                <span class="method-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <span class="method-body">
+                  <span class="method-label">Call or Text</span>
+                  <span class="method-value accent">(559) 349-4392</span>
+                </span>
+                <span class="method-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+
+              <a href="mailto:jonathan@avilainfrastructure.com" class="method">
+                <span class="method-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg>
+                </span>
+                <span class="method-body">
+                  <span class="method-label">Email</span>
+                  <span class="method-value">jonathan@avilainfrastructure.com</span>
+                </span>
+                <span class="method-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+
+              <a href="https://avilainfrastructure.com" class="method">
+                <span class="method-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </span>
+                <span class="method-body">
+                  <span class="method-label">Website</span>
+                  <span class="method-value">avilainfrastructure.com</span>
+                </span>
+                <span class="method-arrow" aria-hidden="true">&rarr;</span>
+              </a>
             </div>
 
-            <div class="contact-item">
-              <span class="contact-ic" aria-hidden="true">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="47" fill="currentColor"/>
-                  <rect x="30" y="36" width="40" height="28" rx="3.5" fill="none" stroke="#fff" stroke-width="4"/>
-                  <polyline points="33,41 50,54 67,41" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <div>
-                <span class="contact-label">Email</span>
-                <p class="contact-value"><a href="mailto:jonathan@avilainfrastructure.com">jonathan@avilainfrastructure.com</a></p>
+            <div class="contact-meta">
+              <div class="meta-cell">
+                <span class="meta-label">Location</span>
+                <span class="meta-value">Lemoore, CA</span>
               </div>
-            </div>
-
-            <div class="contact-item">
-              <span class="contact-ic" aria-hidden="true">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="47" fill="currentColor"/>
-                  <g fill="none" stroke="#fff" stroke-width="3.6">
-                    <circle cx="50" cy="50" r="18"/>
-                    <ellipse cx="50" cy="50" rx="8.5" ry="18"/>
-                    <line x1="33" y1="44" x2="67" y2="44"/>
-                    <line x1="33" y1="56" x2="67" y2="56"/>
-                  </g>
-                </svg>
-              </span>
-              <div>
-                <span class="contact-label">Website</span>
-                <p class="contact-value"><a href="https://avilainfrastructure.com">avilainfrastructure.com</a></p>
+              <div class="meta-cell">
+                <span class="meta-label">Coverage</span>
+                <span class="meta-value">Central Valley</span>
               </div>
-            </div>
-
-            <div class="contact-item plain">
-              <div>
-                <span class="contact-label">Location</span>
-                <p class="contact-value">Lemoore, CA &mdash; Central Valley</p>
+              <div class="meta-cell">
+                <span class="meta-label">Hours</span>
+                <span class="meta-value">Mon &ndash; Sat</span>
               </div>
-            </div>
-
-            <div class="contact-item plain">
-              <div>
-                <span class="contact-label">Availability</span>
-                <p class="contact-value">Monday &ndash; Saturday<br><span style="color: var(--muted-on-dark); font-weight: 400;">Emergency services available</span></p>
+              <div class="meta-cell">
+                <span class="meta-label">After Hours</span>
+                <span class="meta-value">Emergency Service</span>
               </div>
             </div>
 
@@ -1537,16 +1705,21 @@
 
           <div class="contact-form-wrapper reveal reveal-delay-2">
             <form class="contact-form" id="contactForm" novalidate>
-              <h3 class="form-title">Request an Estimate</h3>
-
-              <div class="form-group">
-                <label for="formName" class="form-label">Name</label>
-                <input type="text" id="formName" name="name" class="form-input" placeholder="Your name" required>
+              <div class="form-head">
+                <p class="form-index">Req // Estimate</p>
+                <h3 class="form-title">Request an Estimate</h3>
+                <p class="form-sub">Tell us what you need &mdash; we reply within 24 hours.</p>
               </div>
 
-              <div class="form-group">
-                <label for="formPhone" class="form-label">Phone</label>
-                <input type="tel" id="formPhone" name="phone" class="form-input" placeholder="(559) 000-0000" required>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="formName" class="form-label">Name</label>
+                  <input type="text" id="formName" name="name" class="form-input" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                  <label for="formPhone" class="form-label">Phone</label>
+                  <input type="tel" id="formPhone" name="phone" class="form-input" placeholder="(559) 000-0000" required>
+                </div>
               </div>
 
               <div class="form-group">
@@ -1555,14 +1728,14 @@
               </div>
 
               <div class="form-group">
-                <label for="formType" class="form-label">Type of Work</label>
-                <select id="formType" name="type" class="form-select" required>
-                  <option value="" disabled selected>Select a service type</option>
-                  <option value="infrastructure">Infrastructure</option>
-                  <option value="ag-solutions">Ag Solutions</option>
-                  <option value="utility-installation">Utility Installation</option>
-                  <option value="other">Other</option>
-                </select>
+                <span class="form-label" id="typeLabel">Type of Work</span>
+                <div class="chip-group" id="chipGroup" role="group" aria-labelledby="typeLabel">
+                  <button type="button" class="chip" data-value="Infrastructure" aria-pressed="false">Infrastructure</button>
+                  <button type="button" class="chip" data-value="Ag Solutions" aria-pressed="false">Ag Solutions</button>
+                  <button type="button" class="chip" data-value="Utility Installation" aria-pressed="false">Utility Install</button>
+                  <button type="button" class="chip" data-value="Other" aria-pressed="false">Other</button>
+                </div>
+                <input type="hidden" id="formType" name="type" value="">
               </div>
 
               <div class="form-group">
@@ -1570,11 +1743,15 @@
                 <textarea id="formMessage" name="message" class="form-textarea" placeholder="Tell us about your project..." required></textarea>
               </div>
 
-              <button type="submit" class="form-submit">Send Request</button>
+              <button type="submit" class="form-submit">
+                <span class="submit-text">Send Request</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+              <p class="form-alt">or call <a href="tel:5593494392">(559) 349-4392</a></p>
               <p class="form-status" id="formStatus" role="alert" aria-live="assertive"></p>
             </form>
 
-            <div class="form-success" id="formSuccess" aria-live="polite">
+            <div class="form-success" id="formSuccess" aria-live="polite" tabindex="-1">
               <div class="form-success-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"/>
@@ -1695,6 +1872,24 @@
       const formSuccess = document.getElementById('formSuccess');
       const formStatus = document.getElementById('formStatus');
       const submitBtn = contactForm.querySelector('.form-submit');
+      const submitText = submitBtn.querySelector('.submit-text');
+      const chipGroup = document.getElementById('chipGroup');
+      const chips = chipGroup ? chipGroup.querySelectorAll('.chip') : [];
+      const formType = document.getElementById('formType');
+
+      // Service-type chips set the hidden formType input
+      chips.forEach(function(chip) {
+        chip.addEventListener('click', function() {
+          chips.forEach(function(c) {
+            c.classList.remove('active');
+            c.setAttribute('aria-pressed', 'false');
+          });
+          chip.classList.add('active');
+          chip.setAttribute('aria-pressed', 'true');
+          formType.value = chip.getAttribute('data-value');
+          chipGroup.classList.remove('error');
+        });
+      });
 
       function showStatus(message, isError) {
         formStatus.innerHTML = message;
@@ -1739,7 +1934,7 @@
 
       function sendViaFormspree(data) {
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending…';
+        submitText.textContent = 'Sending…';
         return fetch(FORM_ENDPOINT, {
           method: 'POST',
           headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
@@ -1758,7 +1953,7 @@
           );
         }).finally(function() {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Send Request';
+          submitText.textContent = 'Send Request';
         });
       }
 
@@ -1770,8 +1965,14 @@
         for (let i = 0; i < fields.length; i++) {
           const field = document.getElementById(fields[i]);
           if (!field.value.trim()) {
-            field.focus();
-            showStatus('Please fill in every field so we can prepare an accurate estimate.', true);
+            if (fields[i] === 'formType') {
+              chipGroup.classList.add('error');
+              chipGroup.scrollIntoView({ block: 'center', behavior: 'smooth' });
+              showStatus('Please choose a type of work.', true);
+            } else {
+              field.focus();
+              showStatus('Please fill in every field so we can prepare an accurate estimate.', true);
+            }
             return;
           }
         }
