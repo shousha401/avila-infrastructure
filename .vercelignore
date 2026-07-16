@@ -1,0 +1,5 @@
+# Keep the deployment to just the site — exclude tooling/docs
+.claude
+.git
+README.md
+node_modules
