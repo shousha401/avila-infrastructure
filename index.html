@@ -1067,6 +1067,15 @@
     .chip:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
     .chip-group.error { outline: 2px solid var(--red); outline-offset: 5px; }
 
+    /* honeypot — kept off-screen, never shown to real users */
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
     .form-submit {
       position: relative;
       overflow: hidden;
@@ -1743,6 +1752,13 @@
                 <textarea id="formMessage" name="message" class="form-textarea" placeholder="Tell us about your project..." required></textarea>
               </div>
 
+              <!-- Honeypot: hidden from people; bots that fill it get dropped as spam -->
+              <div class="hp-field" aria-hidden="true">
+                <label>Don't fill this out if you're human:
+                  <input type="text" name="_gotcha" id="formGotcha" tabindex="-1" autocomplete="off">
+                </label>
+              </div>
+
               <button type="submit" class="form-submit">
                 <span class="submit-text">Send Request</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1861,11 +1877,10 @@
       const yearEl = document.getElementById('year');
       if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
 
-      // Contact form
-      // To deliver leads straight to an inbox (no email client needed), create a form at
-      // https://formspree.io for jonathan@avilainfrastructure.com and paste the endpoint below.
-      // While FORM_ENDPOINT is empty, the form falls back to opening the visitor's email app.
-      const FORM_ENDPOINT = '';
+      // Contact form — submissions POST to Formspree, which emails the recipient
+      // configured in the Formspree dashboard. If FORM_ENDPOINT is ever cleared, the
+      // form falls back to opening the visitor's email app (mailto).
+      const FORM_ENDPOINT = 'https://formspree.io/f/xzdndjvw';
       const CONTACT_EMAIL = 'jonathan@avilainfrastructure.com';
 
       const contactForm = document.getElementById('contactForm');
@@ -1935,10 +1950,19 @@
       function sendViaFormspree(data) {
         submitBtn.disabled = true;
         submitText.textContent = 'Sending…';
+        const payload = {
+          name: data.name,
+          phone: data.phone,
+          email: data.email,          // Formspree uses this as the reply-to address
+          type: data.type,
+          message: data.message,
+          _subject: 'New estimate request from ' + data.name + ' — Avila website',
+          _gotcha: (document.getElementById('formGotcha') || {}).value || ''
+        };
         return fetch(FORM_ENDPOINT, {
           method: 'POST',
           headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          body: JSON.stringify(payload)
         }).then(function(response) {
           if (response.ok) {
             showSuccess();
