@@ -1333,6 +1333,30 @@
       font-style: italic;
     }
 
+    .footer-bottom-end {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .footer-credit {
+      font-size: 0.74rem;
+      color: rgba(162, 164, 170, 0.55);
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+
+    .footer-credit a {
+      color: var(--muted-on-dark);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-credit a:hover, .footer-credit a:focus { color: var(--red); outline: none; }
+    .footer-credit a:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
+
     /* ========================================
        SCROLL REVEAL
     ======================================== */
@@ -1427,6 +1451,7 @@
       .cities-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-main { flex-direction: column; text-align: center; }
       .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-bottom-end { align-items: center; }
       .btn { width: 100%; max-width: 340px; }
     }
 
@@ -1965,7 +1990,10 @@
 
       <div class="footer-bottom">
         <p class="footer-copyright">&copy; <span id="year">2026</span> Avila Infrastructure &amp; Contracting. All rights reserved. Licensed &bull; Insured &bull; Bonded &mdash; State of California.</p>
-        <p class="footer-disclaimer">Emergency and urgent work availability may vary. Call for immediate assistance.</p>
+        <div class="footer-bottom-end">
+          <p class="footer-disclaimer">Emergency and urgent work availability may vary. Call for immediate assistance.</p>
+          <p class="footer-credit">Website by <a href="https://localfix.now" target="_blank" rel="noopener">LocalFix</a></p>
+        </div>
       </div>
     </div>
   </footer>
